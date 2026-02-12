@@ -1,0 +1,40 @@
+:root {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: #303133;
+}
+
+.app-main {
+  max-width: 1000px;
+  margin: 20px auto;
+}
