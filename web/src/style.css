@@ -1,6 +1,20 @@
 :root {
-  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  --brand-deep: #0f2842;
+  --brand-blue: #1d5d9b;
+  --brand-cyan: #3e8ec4;
+  --brand-green: #2f8f78;
+  --bg-page: #f4f7fb;
+  --surface-white: rgba(255, 255, 255, 0.92);
+  --surface-line: rgba(255, 255, 255, 0.9);
+  --ink: #1f2a44;
+  --ink-muted: #5b6476;
+  --shadow-soft: 0 14px 32px rgba(16, 37, 64, 0.08);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  font-family: 'HarmonyOS Sans SC', 'Alibaba PuHuiTi', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 1.5;
+  color: var(--ink);
 }
 
 * {
@@ -15,26 +29,221 @@ body,
   min-height: 100vh;
 }
 
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(53, 132, 211, 0.16), transparent 32%),
+    radial-gradient(circle at 90% 24%, rgba(88, 190, 170, 0.12), transparent 28%),
+    linear-gradient(140deg, #edf4ff 0%, #f2f7fb 45%, #f8fbff 100%);
+}
+
 .app-shell {
   min-height: 100vh;
-  background: #f5f7fa;
 }
 
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
   display: flex;
   align-items: center;
-  gap: 24px;
-  background: #fff;
-  border-bottom: 1px solid #ebeef5;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e4ecf4;
+  box-shadow: 0 2px 10px rgba(15, 37, 64, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #1d5d9b, #3b8bcc);
+  box-shadow: 0 8px 18px rgba(29, 93, 155, 0.3);
+  font-size: 18px;
+}
+
+.brand-text {
+  display: grid;
+  gap: 2px;
 }
 
 .brand {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #173452;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: #6c7f95;
+  letter-spacing: 0.04em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f6984;
+  font-size: 12px;
+}
+
+.user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #dde8f5;
+  background: rgba(255, 255, 255, 0.88);
+  transition: all 0.2s ease;
+}
+
+.user-trigger:hover {
+  border-color: #b8d4f0;
+  box-shadow: 0 6px 18px rgba(30, 84, 136, 0.12);
+}
+
+.user-avatar {
+  background: linear-gradient(135deg, #1f69aa, #44a0d7);
+  color: #fff;
   font-weight: 700;
-  color: #303133;
+}
+
+.user-meta {
+  display: grid;
+  line-height: 1.15;
+}
+
+.user-meta strong {
+  color: #1a4068;
+  font-size: 13px;
+}
+
+.user-meta span {
+  color: #66829d;
+  font-size: 11px;
 }
 
 .app-main {
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 1520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(14px, 2vw, 22px);
+  overflow-x: hidden;
+}
+
+.app-main--auth {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.page-subtitle {
+  margin: 8px 0 0;
+  color: var(--ink-muted);
+}
+
+.block {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-line);
+  background: var(--surface-white);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-head__title {
+  margin: 0;
+  font-size: 18px;
+  color: #244664;
+}
+
+.panel-head__desc {
+  margin: 4px 0 0;
+  color: #678099;
+  font-size: 13px;
+}
+
+.muted-text {
+  color: var(--ink-muted);
+}
+
+.scrollable-y {
+  overflow-y: auto;
+}
+
+@media (max-width: 840px) {
+  .app-header {
+    min-height: 60px;
+    height: auto;
+    padding: 8px 10px;
+    flex-wrap: wrap;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .app-main {
+    padding: 14px 10px;
+  }
+
+  .header-meta {
+    order: 3;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .current-page {
+    order: 2;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
 }
