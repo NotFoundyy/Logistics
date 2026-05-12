@@ -130,7 +130,7 @@ public class CourierWorkbenchService {
                 "PICKED_UP",
                 courierProfile.stationId(),
                 courierProfile.courierId(),
-                "courier accepted task and started transport"
+                "快递员已接单并开始运输"
         );
 
         LocalDateTime transitTime = nextAvailableEventTime(taskSnapshot.waybillNo(), "IN_TRANSIT");
@@ -143,7 +143,7 @@ public class CourierWorkbenchService {
                 "IN_TRANSIT",
                 courierProfile.stationId(),
                 courierProfile.courierId(),
-                "package left origin station and is in transit"
+                "包裹已离开发件站点，正在运输中"
         );
     }
 
