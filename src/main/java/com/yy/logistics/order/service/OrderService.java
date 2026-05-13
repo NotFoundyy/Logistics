@@ -105,7 +105,7 @@ public class OrderService {
                 STATUS_CREATED,
                 null,
                 null,
-                "order created, waiting for courier acceptance"
+                "订单已创建，等待快递员接单"
         );
 
         if (!orderRepository.existsActiveTask(waybillNo, DISPATCH_TASK_TYPE)) {
@@ -215,7 +215,7 @@ public class OrderService {
                 EVENT_PAYMENT_CONFIRMED,
                 null,
                 null,
-                "online payment confirmed, amount: " + snapshot.feeTotal()
+                "在线支付已完成，金额：" + snapshot.feeTotal()
         );
 
         String paymentRemark = "online payment success, amount: " + snapshot.feeTotal();
@@ -347,7 +347,7 @@ public class OrderService {
                 "RECEIVER_UPDATED",
                 null,
                 null,
-                "receiver updated and fee recalculated: " + newFee + " (delta: " + delta + ")"
+                "收件信息已修改，费用已重新计算：" + newFee + "（差额：" + delta + "）"
         );
 
         return new OrderReceiverUpdateResponse(snapshot.orderNo(), snapshot.waybillNo(), oldFee, newFee, delta);
